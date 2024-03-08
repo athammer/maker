@@ -2,7 +2,6 @@
 	<div
 		:class="$s.Menu"
 		v-bind="$attrs"
-		v-on="$listeners"
 	>
 		<m-popover
 			ref="popover"
@@ -107,6 +106,7 @@ export default {
 			validator: (type) => ['multi-select', 'single-select', 'action'].includes(type),
 		},
 	},
+	emits: ['menu:open', 'menu:close', 'menu:update'],
 
 	data() {
 		return {

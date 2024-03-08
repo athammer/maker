@@ -44,6 +44,8 @@
 </template>
 
 <script>
+import { nextTick } from 'vue';
+
 const INPUT_FILTER_REGEX = /\D/gimu;
 const INPUT_KEY_REGEX = /\d/;
 
@@ -89,6 +91,7 @@ export default {
 			default: false,
 		},
 	},
+	emits: ['complete'],
 
 	data() {
 		return {
@@ -132,7 +135,7 @@ export default {
 		},
 	},
 
-	beforeDestroy() {
+	beforeUnmount() {
 		clearTimeout(this.shakeTimeout);
 	},
 
@@ -140,7 +143,7 @@ export default {
 		setFocus(focusState) {
 			this.isFocused = focusState;
 			if (this.isFocused) {
-				this.$nextTick(() => this.setCaretPositionToEnd());
+				nextTick(() => this.setCaretPositionToEnd());
 			}
 		},
 
@@ -221,7 +224,7 @@ export default {
 				this.inputValue = this.inputValue.slice(0, position)
 					+ this.inputValue.slice(position + ONE);
 
-				this.$nextTick(() => {
+				nextTick(() => {
 					this.$refs.input.selectionStart = position;
 					this.$refs.input.selectionEnd = position;
 				});

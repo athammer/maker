@@ -188,14 +188,6 @@ export default {
 		};
 	},
 
-	async mounted() {
-		// the module has to import itself
-		// because the "import" causes it to be
-		// built by vue-loader, which is necessary
-		// in order to use it in the JSX below
-		this.NestedModal = (await import('./MultiModal.vue')).default;
-	},
-
 	methods: {
 		openNested(options = {}) {
 			debugger;
@@ -220,8 +212,7 @@ export default {
 				beforeCloseOpt = beforeCloseOptFactory('options', options.optReturn);
 			}
 			debugger;
-			const { NestedModal } = this;
-			this.modalApi.open(() => <NestedModal
+			this.modalApi.open(() => <MultiModal
 				depth={this.depth + INC_DEPTH}
 				beforeClose={beforeCloseProp}
 			/>, {

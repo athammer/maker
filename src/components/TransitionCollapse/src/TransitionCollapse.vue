@@ -3,7 +3,6 @@
 		v-bind="$attrs"
 		:enter="expandFn"
 		:leave="collapseFn"
-		v-on="$listeners"
 	>
 		<!-- @slot content to collapse & expand -->
 		<slot />

@@ -27,9 +27,11 @@
 					>
 						{{ category }}
 					</m-text>
-					<template v-for="item in categoryItems(category)">
+					<template
+						v-for="item in categoryItems(category)"
+						:key="item.id"
+					>
 						<div
-							:key="item.name"
 							class="item"
 						>
 							<div class="item-details">
@@ -52,7 +54,7 @@
 								class="item-preview"
 							/>
 						</div>
-						<m-divider :key="item.id" />
+						<m-divider />
 					</template>
 				</div>
 				<m-inline-action-bar>

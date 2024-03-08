@@ -4,7 +4,7 @@
 		:class="$s.Modal"
 		:style="style"
 		:prevent-default="preventDefault"
-		@scroll.native="onScroll"
+		@scroll="onScroll"
 		@on-drag-down="onDragDown"
 		@on-drag-end="onDragEnd"
 		@on-swipe-down="onSwipeDown"

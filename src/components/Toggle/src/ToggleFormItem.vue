@@ -3,7 +3,6 @@
 		<template #control>
 			<toggle-control
 				v-bind="$attrs"
-				v-on="$listeners"
 			/>
 		</template>
 

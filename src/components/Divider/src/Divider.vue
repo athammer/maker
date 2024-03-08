@@ -3,7 +3,6 @@
 		:class="$s.Divider"
 		:style="styles"
 		v-bind="$attrs"
-		v-on="$listeners"
 	/>
 </template>
 

@@ -10,7 +10,6 @@
 				:key="`skeleton-text-${idx}`"
 				:class="$s.SkeletonText"
 				v-bind="$attrs"
-				v-on="$listeners"
 			/>
 		</template>
 	</div>
@@ -49,7 +48,7 @@ export default {
 
 	computed: {
 		children() {
-			return this.$slots.default && this.$slots.default.find((v) => v.tag || v.text.trim());
+			return this.$slots.default() && this.$slots.default().find((v) => v.tag || v.text.trim());
 		},
 		linesNum() {
 			return Number.parseInt(this.lines, 10);

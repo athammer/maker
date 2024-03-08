@@ -3,7 +3,6 @@
 		v-bind="$attrs"
 		:enter="fadeInFn"
 		:leave="fadeOutFn"
-		v-on="$listeners"
 	>
 		<!-- @slot content to fade in & out -->
 		<slot />

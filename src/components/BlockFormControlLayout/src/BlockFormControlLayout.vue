@@ -2,7 +2,7 @@
 	<div :class="$s.Container">
 		<slot name="control" />
 		<span
-			v-if="$slots.error"
+			v-if="$slots.error()"
 			:class="$s.Error"
 		>
 			<slot name="error" />

@@ -94,6 +94,7 @@ export default {
 	components: {
 		MIcon,
 	},
+	emits: ['image-picker:add-images'],
 
 	data() {
 		return {

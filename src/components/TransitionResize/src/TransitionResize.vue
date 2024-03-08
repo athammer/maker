@@ -8,7 +8,6 @@
 		@after-enter="onAfterEnter"
 		@before-leave="onBeforeLeave"
 		@leave="onLeave"
-		v-on="$listeners"
 	>
 		<!-- @slot content to animate -->
 		<slot />

@@ -3,7 +3,6 @@
 		:class="[$s.Pill, shapeClass]"
 		:style="style"
 		v-bind="$attrs"
-		v-on="$listeners"
 	>
 		<!-- @slot pill content -->
 		<slot />

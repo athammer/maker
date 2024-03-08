@@ -5,7 +5,6 @@
 				ref="pinInputControl"
 				:invalid="isInvalid"
 				v-bind="$attrs"
-				v-on="$listeners"
 			>
 				<template
 					v-for="(_, slot) of $slots"
@@ -43,7 +42,7 @@ export default {
 
 	computed: {
 		isInvalid() {
-			return this.$attrs.invalid === '' || this.$attrs.invalid || !!this.$slots.error;
+			return this.$attrs.invalid === '' || this.$attrs.invalid || !!this.$slots.error();
 		},
 	},
 

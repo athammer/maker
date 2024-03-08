@@ -7,7 +7,6 @@
 		]"
 		:style="style"
 		v-bind="$attrs"
-		v-on="$listeners"
 	>
 		<div :class="$s.IconContentWrapper">
 			<div :class="$s.IconAligner">
@@ -155,7 +154,7 @@ export default {
 	},
 
 	created() {
-		assert.warn(!(this.display === 'inline' && this.$slots.actions), 'inline Notices cannot have an actions slot', 'Notice');
+		assert.warn(!(this.display === 'inline' && this.$slots.actions()), 'inline Notices cannot have an actions slot', 'Notice');
 	},
 };
 </script>

@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import Vue from 'vue';
+import { reactive } from 'vue';
 import { MTransitionStack } from '@square/maker/components/TransitionStack';
 import { toastApi } from '@square/maker/components/Toast';
 import ToastRenderFn from './ToastRenderFn';
@@ -46,7 +46,7 @@ function toastify(renderFn, options) {
 const apiMixin = {
 	provide() {
 		const api = {
-			state: Vue.observable({
+			state: reactive({
 				toasts: [],
 			}),
 

@@ -19,6 +19,7 @@ export default {
 			default: undefined,
 		},
 	},
+	emits: ['popover-instance:new-popper', 'resize'],
 
 	mounted() {
 		this.popper = createPopper(this.actionEl, this.$el, this.popperConfig);
@@ -27,7 +28,7 @@ export default {
 		this.$emit('popover-instance:new-popper', this.popper);
 	},
 
-	beforeDestroy() {
+	beforeUnmount() {
 		this.resizeObserver.disconnect();
 	},
 

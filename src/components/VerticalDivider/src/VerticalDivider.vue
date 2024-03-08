@@ -2,7 +2,6 @@
 	<div
 		:class="$s.VerticalDivider"
 		v-bind="$attrs"
-		v-on="$listeners"
 	/>
 </template>
 

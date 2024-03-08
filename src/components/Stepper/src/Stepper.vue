@@ -60,6 +60,7 @@
 </template>
 
 <script>
+import { nextTick } from 'vue';
 import { colord } from 'colord';
 import { MThemeKey, defaultTheme, resolveThemeableProps } from '@square/maker/components/Theme';
 import { MButton } from '@square/maker/components/Button';
@@ -133,6 +134,7 @@ export default {
 			validator: (shape) => ['squared', 'rounded', 'pill'].includes(shape),
 		},
 	},
+	emits: ['stepper:update'],
 
 	data() {
 		return {
@@ -176,7 +178,7 @@ export default {
 		triggerManualInput() {
 			this.manualValue = this.value;
 			this.isSettingManualValue = true;
-			this.$nextTick(() => {
+			nextTick(() => {
 				this.$refs.manualInput.focus();
 				this.$refs.manualInput.select();
 			});

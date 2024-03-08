@@ -51,7 +51,7 @@ export default {
 		listeners() {
 			const listeners = {
 				// apply listeners set by parent
-				...this.$listeners,
+				...this.$attrs,
 			};
 			if (this.persistent) {
 				return listeners;

@@ -12,7 +12,6 @@
 			},
 		]"
 		v-bind="$attrs"
-		v-on="$listeners"
 	/>
 </template>
 
@@ -66,6 +65,7 @@ export default {
 			default: false,
 		},
 	},
+	emits: ['textarea:update'],
 
 	computed: {
 		textareaVal: {

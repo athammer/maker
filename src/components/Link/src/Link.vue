@@ -1,4 +1,5 @@
 <script>
+import { h } from 'vue';
 import cssValidator from '@square/maker/utils/css-validator';
 import { MThemeKey, defaultTheme, resolveThemeableProps } from '@square/maker/components/Theme';
 
@@ -102,7 +103,7 @@ export default {
 		},
 	},
 
-	render(createElement) {
+	render() {
 		const {
 			$parent,
 			$props,
@@ -110,28 +111,23 @@ export default {
 			$s,
 			attrs,
 			inlineStyles,
-			$listeners,
 			$slots,
 		} = this;
-		const defaultSlot = sanitizeVnodes($slots.default);
+		const defaultSlot = sanitizeVnodes($slots.default());
 		const RouterLink = shouldRenderRouterLink($parent, to);
 		if (RouterLink) {
-			return createElement(RouterLink, {
+			return h(RouterLink, {
 				class: $s.Link,
-				attrs,
+				...attrs,
 				style: inlineStyles,
 				props: $props,
-				on: $listeners,
 			}, defaultSlot);
 		}
-		return createElement('a', {
+		return h('a', {
 			class: $s.Link,
-			attrs: {
-				href: to,
-				...attrs,
-			},
+			href: to,
+			...attrs,
 			style: inlineStyles,
-			on: $listeners,
 		}, defaultSlot);
 	},
 };

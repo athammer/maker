@@ -8,7 +8,6 @@
 			:class="$s.Checkbox"
 			:disabled="disabled"
 			v-bind="$attrs"
-			v-on="$listeners"
 		>
 		<svg :class="$s.Check">
 			<path d="M1 4L5.5 8.5L13 1" />
@@ -60,6 +59,7 @@ export default {
 			default: false,
 		},
 	},
+	emits: ['checkbox:update'],
 
 	computed: {
 		checkVal: {

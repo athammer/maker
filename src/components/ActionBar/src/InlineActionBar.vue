@@ -7,7 +7,6 @@
 			<atomic-action-bar
 				v-if="loaded"
 				v-bind="$attrs"
-				v-on="$listeners"
 			>
 				<slot />
 			</atomic-action-bar>
@@ -43,7 +42,7 @@ export default {
 	mounted() {
 		const enterDelay = 600;
 		setTimeout(() => {
-			this.loaded = !!this.$slots.default;
+			this.loaded = !!this.$slots.default();
 		}, enterDelay);
 	},
 };

@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import Vue from 'vue';
+import { reactive } from 'vue';
 import PseudoWindow from 'vue-pseudo-window';
 import { MTransitionFadeIn } from '@square/maker/components/TransitionFadeIn';
 import { MTransitionResponsive } from '@square/maker/components/TransitionResponsive';
@@ -40,7 +40,7 @@ import bladeApi from './blade-api';
 const apiMixin = {
 	provide() {
 		const api = {
-			state: Vue.observable({
+			state: reactive({
 				renderFn: undefined,
 			}),
 

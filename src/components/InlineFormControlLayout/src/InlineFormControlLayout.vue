@@ -13,7 +13,7 @@
 		<div>
 			<slot name="label" />
 			<div
-				v-if="$slots.sublabel"
+				v-if="$slots.sublabel()"
 			>
 				<slot name="sublabel" />
 			</div>
@@ -36,7 +36,7 @@ export default {
 		},
 	},
 	mounted() {
-		assert.error(this.$slots.label, 'Missing "label" slot in inline form control', 'InlineFormControlLayout');
+		assert.error(this.$slots.label(), 'Missing "label" slot in inline form control', 'InlineFormControlLayout');
 	},
 };
 </script>

@@ -3,7 +3,6 @@
 		v-bind="$attrs"
 		:enter="springLeftFn"
 		:leave="springRightFn"
-		v-on="$listeners"
 	>
 		<!-- @slot content to spring left -->
 		<slot />

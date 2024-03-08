@@ -110,6 +110,7 @@ export default {
 			default: () => DEFAULT_MODIFIERS,
 		},
 	},
+	emits: ['open', 'close'],
 
 	data() {
 		const vm = this;

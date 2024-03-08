@@ -23,7 +23,6 @@
 				:src="calculatedSrc"
 				v-bind="$attrs"
 				@load="onLoaded"
-				v-on="$listeners"
 			>
 		</m-transition-fade-in>
 		<pseudo-window
@@ -127,6 +126,7 @@ export default {
 			default: 'center',
 		},
 	},
+	emits: ['image:visible'],
 
 	data() {
 		return {
@@ -195,7 +195,7 @@ export default {
 		this.getImageDimensions();
 	},
 
-	beforeDestroy() {
+	beforeUnmount() {
 		observer?.unwatch(this.$el);
 	},
 

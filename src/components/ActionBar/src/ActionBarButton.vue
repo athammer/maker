@@ -15,7 +15,6 @@
 		:disabled="isDisabled"
 		:style="style"
 		v-bind="$attrs"
-		v-on="$listeners"
 	>
 		<m-loading
 			v-if="loading"
@@ -33,7 +32,7 @@
 			<slot />
 		</span>
 		<span
-			v-if="$scopedSlots.information"
+			v-if="$slots.information()"
 			:class="[$s.InformationText, $s.TruncateText]"
 		>
 			<!-- @slot Information label -->
@@ -159,6 +158,7 @@ export default {
 			default: false,
 		},
 	},
+	emits: ['window-esc'],
 
 	computed: {
 		...resolveThemeableProps('actionbarbutton', [
@@ -200,20 +200,20 @@ export default {
 		},
 
 		isSingleChild() {
-			if (this.$scopedSlots.information) {
+			if (this.$slots.information()) {
 				return false;
 			}
-			const children = this.getVnodesWithContent(this.$slots.default);
+			const children = this.getVnodesWithContent(this.$slots.default());
 			const singleChild = 1;
 			return children.length === singleChild && children[0].tag;
 		},
 
 		hasMainAndLabelText() {
-			if (!this.$scopedSlots.information) {
+			if (!this.$slots.information()) {
 				return false;
 			}
-			const main = this.getVnodesWithContent(this.$slots.default);
-			const info = this.getVnodesWithContent(this.$scopedSlots.information());
+			const main = this.getVnodesWithContent(this.$slots.default());
+			const info = this.getVnodesWithContent(this.$slots.information());
 			return main.length > 0 && info.length > 0;
 		},
 

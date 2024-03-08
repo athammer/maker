@@ -2,7 +2,7 @@
 	<transition-group
 		tag="div"
 		v-bind="$attrs"
-		v-on="$listeners"
+
 		@before-enter="beforeEnter"
 		@enter="enter"
 		@before-leave="beforeLeave"

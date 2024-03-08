@@ -5,7 +5,6 @@
 		type="checkbox"
 		:class="$s.Checkbox"
 		v-bind="$attrs"
-		v-on="$listeners"
 	>
 </template>
 
@@ -38,6 +37,7 @@ export default {
 			default: false,
 		},
 	},
+	emits: ['toggle:update'],
 
 	computed: {
 		toggleValue: {

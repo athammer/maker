@@ -90,11 +90,12 @@ module.exports = {
 		{
 			files: ['*.vue'],
 			extends: [
-				'plugin:vue/recommended',
+				'plugin:vue/vue3-recommended',
 			],
 			rules: {
 				'vue/html-indent': ['error', 'tab'],
-				'vue/no-unregistered-components': ['error', {
+				'vue/multi-word-component-names': 'off',
+				'vue/no-undef-components': ['error', {
 					ignorePatterns: [
 						'router-view',
 						'router-link',
@@ -105,8 +106,8 @@ module.exports = {
 				// Disabled until github.com/vuejs/eslint-plugin-vue/issues/1260
 				'vue/custom-event-name-casing': 'off',
 
-				// this rule is only for vue 3.x but we're on vue 2.x
-				'vue/no-v-for-template-key-on-child': 'off',
+				// this rule is only for vue 2.x but we're on vue 3.x
+				'vue/no-v-for-template-key': 'off',
 
 				'vue/no-deprecated-slot-attribute': ['error'],
 				'vue/no-deprecated-slot-scope-attribute': ['error'],

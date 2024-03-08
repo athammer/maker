@@ -5,10 +5,8 @@
 		but I'm keeping this code here in case
 		I wanna experiment more with it later
 	-->
-	<html-fragment
+	<template
 		v-if="fragment"
-		:class="classes"
-		:html="svgText"
 	/>
 	<!-- eslint-disable vue/no-v-html -->
 	<i
@@ -19,7 +17,6 @@
 </template>
 
 <script>
-import HtmlFragment from './HtmlFragment.vue';
 
 /**
  * trims anything before the opening svg tag
@@ -62,9 +59,6 @@ function cleanText(svgText) {
  * by CSS for styling.
  */
 export default {
-	components: {
-		HtmlFragment,
-	},
 	props: {
 		src: {
 			type: String,

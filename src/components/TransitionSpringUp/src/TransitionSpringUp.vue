@@ -3,7 +3,6 @@
 		v-bind="$attrs"
 		:enter="springUpFn"
 		:leave="springDownFn"
-		v-on="$listeners"
 	>
 		<!-- @slot content to spring up -->
 		<slot />

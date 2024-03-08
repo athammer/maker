@@ -17,7 +17,6 @@
 		:disabled="isDisabled"
 		:style="style"
 		v-bind="$attrs"
-		v-on="$listeners"
 	>
 		<m-loading
 			v-if="loading"
@@ -36,7 +35,7 @@
 		</span>
 
 		<span
-			v-if="$scopedSlots.information"
+			v-if="$slots.information()"
 			:class="[$s.InformationText, $s.TruncateText]"
 		>
 			<!-- @slot Information label -->
@@ -422,11 +421,11 @@ export default {
 
 	methods: {
 		isSingleChild() {
-			if (this.$scopedSlots.information) {
+			if (this.$slots.information()) {
 				return false;
 			}
 			const empty = 0;
-			const children = (this.$slots.default || []).filter(
+			const children = (this.$slots.default() || []).filter(
 				(vnode) => vnode.tag || vnode.text.trim().length > empty,
 			);
 			const firstChildIndex = 0;

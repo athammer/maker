@@ -1,4 +1,6 @@
 <script>
+import { h } from 'vue';
+
 /**
  * @inheritAttrs div
  * @inheritListeners div
@@ -16,12 +18,12 @@ export default {
 		},
 	},
 
-	render(h) {
+	render() {
 		/**
 		 * @slot loading content
 		 */
-		if (this.$slots.default) {
-			return this.$slots.default;
+		if (this.$slots.default()) {
+			return this.$slots.default();
 		}
 
 		return h('div', {
@@ -31,7 +33,6 @@ export default {
 					[this.$s.loading]: !this.loaded,
 				},
 			],
-			on: this.$listeners,
 			attrs: this.$attrs,
 		});
 	},

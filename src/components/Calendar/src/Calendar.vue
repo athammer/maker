@@ -2,7 +2,6 @@
 	<div
 		:class="$s.Calendar"
 		v-bind="$attrs"
-		v-on="$listeners"
 	>
 		<div :class="$s.CalendarHeader">
 			<m-button
@@ -156,6 +155,7 @@ export default {
 			default: undefined,
 		},
 	},
+	emits: ['calendar:update'],
 
 	data() {
 		return {

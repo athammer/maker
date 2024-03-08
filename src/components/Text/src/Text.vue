@@ -1,4 +1,5 @@
 <script>
+import { h } from 'vue';
 import { MThemeKey, defaultTheme, resolveThemeableProps } from '@square/maker/components/Theme';
 import cssValidator from '@square/maker/utils/css-validator';
 
@@ -185,7 +186,7 @@ export default {
 		},
 	},
 
-	render(createElement) {
+	render() {
 		const {
 			$s,
 			tag,
@@ -195,15 +196,14 @@ export default {
 		/**
 		 * @slot text content
 		 */
-		const defaultSlot = this.$slots.default;
-		return createElement(tag, {
+		const defaultSlot = this.$slots.default();
+		return h(tag, {
 			class: [
 				$s.Text,
 				$s[`size_${sizeClass}`],
 			],
 			attrs: this.$attrs,
 			style: inlineStyles,
-			on: this.$listeners,
 		}, defaultSlot);
 	},
 };

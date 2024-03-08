@@ -80,6 +80,7 @@ export default {
 			default: false,
 		},
 	},
+	emits: ['choice:update'],
 
 	data() {
 		return {

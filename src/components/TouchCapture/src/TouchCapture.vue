@@ -40,6 +40,7 @@ export default {
 			default: 300,
 		},
 	},
+	emits: ['on-drag-end'],
 
 	data() {
 		return {

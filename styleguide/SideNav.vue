@@ -3,9 +3,9 @@
 		<nav class="nav">
 			<template
 				v-for="group in groupsWithLinks"
+				:key="group.name"
 			>
 				<a
-					:key="group.name"
 					class="link header-link"
 				>
 					{{ group.name }}
@@ -15,7 +15,7 @@
 					:key="link.path.name"
 					:to="link.path"
 					class="link"
-					@click.native="$emit('route:click')"
+					@click="$emit('route:click')"
 				>
 					{{ link.label }}
 				</router-link>
@@ -23,7 +23,7 @@
 			<router-link
 				to="/utils"
 				class="header-link link"
-				@click.native="$emit('route:click')"
+				@click="$emit('route:click')"
 			>
 				utils
 			</router-link>
@@ -33,6 +33,7 @@
 
 <script>
 export default {
+	emits: ['route:click'],
 	computed: {
 		navLinks() {
 			return this.$router.options.routes

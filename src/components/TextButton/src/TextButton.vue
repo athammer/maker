@@ -11,7 +11,6 @@
 		:disabled="isDisabled"
 		:style="style"
 		v-bind="$attrs"
-		v-on="$listeners"
 	>
 		<m-loading
 			v-if="loading"
@@ -126,7 +125,7 @@ export default {
 	},
 
 	created() {
-		assert.warn(this.$slots.default, 'TextButton should be used with a label', 'TextButton');
+		assert.warn(this.$slots.default(), 'TextButton should be used with a label', 'TextButton');
 	},
 };
 </script>

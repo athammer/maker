@@ -1,7 +1,6 @@
 <template>
 	<div
 		v-bind="$attrs"
-		v-on="$listeners"
 	>
 		<m-row
 			:class="$s.AccordionHeader"
@@ -153,6 +152,7 @@ export default {
 			default: '',
 		},
 	},
+	emits: ['accordion:update'],
 
 	data() {
 		return {
@@ -164,7 +164,7 @@ export default {
 		isExpanded() {
 			// if user didn't pass expanded prop OR is not listening
 			// to updates then use internal data to manage expanded state
-			if (isUndefined(this.expanded) || !this.$listeners['accordion:update']) {
+			if (isUndefined(this.expanded) || !this.$attrs['accordion:update']) {
 				return this.internalExpanded;
 			}
 			if (isUndefined(this.expandKey)) {
@@ -180,7 +180,7 @@ export default {
 	methods: {
 		toggleExpanded() {
 			// no listener, just toggle internal state
-			if (!this.$listeners['accordion:update']) {
+			if (!this.$attrs['accordion:update']) {
 				this.internalExpanded = !this.internalExpanded;
 				return;
 			}

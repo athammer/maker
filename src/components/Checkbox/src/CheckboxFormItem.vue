@@ -4,7 +4,6 @@
 			<checkbox-control
 				v-bind="$attrs"
 				:disabled="disabled"
-				v-on="$listeners"
 			/>
 		</template>
 

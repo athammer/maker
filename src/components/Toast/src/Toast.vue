@@ -10,7 +10,6 @@
 		:dismiss-after="resolvedDismissAfter"
 		:style="style"
 		v-bind="$attrs"
-		v-on="$listeners"
 	>
 		<div :class="$s.ToastContent">
 			<div
@@ -35,9 +34,9 @@
 				<div :class="$s.Actions">
 					<template
 						v-for="(action, index) in actions"
+						:key="action.text"
 					>
 						<m-text-button
-							:key="action.text + 'button'"
 							size="large"
 							:color="resolvedColor"
 							@click="action.click"
@@ -46,7 +45,6 @@
 						</m-text-button>
 						<m-vertical-divider
 							v-if="index !== actions.length - 1"
-							:key="action.text + 'divider'"
 							:class="$s.ActionDivider"
 							:style="dividerStyle"
 						/>

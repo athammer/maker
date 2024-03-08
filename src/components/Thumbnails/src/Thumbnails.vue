@@ -71,6 +71,7 @@ export default {
 			validator: (size) => size >= MIN_TEXT_SIZE && size <= MAX_TEXT_SIZE,
 		},
 	},
+	emits: ['overflow:click', 'thumbnail:click'],
 
 	computed: {
 		visibleThumbnails() {
@@ -85,10 +86,10 @@ export default {
 			const styles = {
 				'--size': this.size,
 			};
-			if (this.$listeners['thumbnail:click']) {
+			if (this.$attrs['thumbnail:click']) {
 				styles['--thumbnail-cursor'] = 'pointer';
 			}
-			if (this.$listeners['overflow:click']) {
+			if (this.$attrs['overflow:click']) {
 				styles['--overflow-cursor'] = 'pointer';
 			}
 			return styles;

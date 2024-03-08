@@ -15,7 +15,7 @@
 			:is-uploading="isUploadingImage(image)"
 			:is-error="isImageWithError(image)"
 			:class="$s.ImageUploaderItem"
-			@removeImage="removeImage(image.id)"
+			@remove-image="removeImage(image.id)"
 		/>
 	</div>
 </template>
@@ -71,6 +71,7 @@ export default {
 			validator: (accept) => accept.startsWith('image/'),
 		},
 	},
+	emits: ['image-uploader:change', 'image-uploader:uploading', 'image-uploader:error', 'image-uploader:complete'],
 
 	data: () => ({
 		images: [],

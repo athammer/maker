@@ -4,7 +4,6 @@
 		:class="$s.Icon"
 		:style="inlineStyles"
 		v-bind="$attrs"
-		v-on="$listeners"
 	/>
 </template>
 

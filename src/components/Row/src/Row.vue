@@ -3,30 +3,29 @@
 		:is="element"
 		:class="$s.Row"
 		v-bind="$attrs"
-		v-on="$listeners"
 	>
 		<div
-			v-if="$slots.prefix"
+			v-if="$slots.prefix()"
 			:class="$s.Prefix"
 		>
 			<slot name="prefix" />
 		</div>
 		<div
-			v-if="$slots.default"
+			v-if="$slots.default()"
 			:class="$s.Label"
 		>
 			<div>
 				<slot />
 			</div>
 			<div
-				v-if="$slots.secondary"
+				v-if="$slots.secondary()"
 				:class="$s.Secondary"
 			>
 				<slot name="secondary" />
 			</div>
 		</div>
 		<div
-			v-if="$slots.side"
+			v-if="$slots.side()"
 			:class="$s.Side"
 		>
 			<div>

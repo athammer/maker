@@ -151,9 +151,11 @@
 						:class="$s.familyChoice"
 						@change="updateFont"
 					>
-						<template v-for="(value, index) in fontOptions">
+						<template
+							v-for="(value, index) in fontOptions"
+							:key="index"
+						>
 							<option
-								:key="index"
 								:value="value.name"
 							>
 								{{ value.name }}
@@ -164,9 +166,11 @@
 						v-model="theme.fonts.heading.fontWeight"
 						@change="updateFont"
 					>
-						<template v-for="(value, index) in defaultWeights">
+						<template
+							v-for="(value, index) in defaultWeights"
+							:key="index"
+						>
 							<option
-								:key="index"
 								:value="value"
 							>
 								{{ value }}
@@ -185,9 +189,11 @@
 						:class="$s.familyChoice"
 						@change="updateFont"
 					>
-						<template v-for="(value, index) in fontOptions">
+						<template
+							v-for="(value, index) in fontOptions"
+							:key="index"
+						>
 							<option
-								:key="index"
 								:value="value.name"
 							>
 								{{ value.name }}
@@ -198,9 +204,11 @@
 						v-model="theme.fonts.body.fontWeight"
 						@change="updateFont"
 					>
-						<template v-for="(value, index) in defaultWeights">
+						<template
+							v-for="(value, index) in defaultWeights"
+							:key="index"
+						>
 							<option
-								:key="index"
 								:value="value"
 							>
 								{{ value }}

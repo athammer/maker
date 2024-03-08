@@ -5,7 +5,6 @@
 			{ [$s.NoActionBar]: !hasActionBar },
 		]"
 		v-bind="$attrs"
-		v-on="$listeners"
 	>
 		<!-- @slot content actionbar will be opened over -->
 		<slot />

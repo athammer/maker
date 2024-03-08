@@ -48,6 +48,7 @@ export default {
 			validator: (size) => ['small', 'medium'].includes(size),
 		},
 	},
+	emits: ['segmented-control:update'],
 	data() {
 		return {
 			currentValue: this.selected,

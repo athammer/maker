@@ -6,14 +6,14 @@ export default {
 
 	inheritAttrs: false,
 
-	destroyed() {
+	unmounted() {
 		// eslint-disable-next-line no-underscore-dangle
 		this.actionBar.unregister(this._uid);
 	},
 
 	render() {
 		// eslint-disable-next-line no-underscore-dangle
-		this.actionBar.register(this._uid, this.$slots.default);
+		this.actionBar.register(this._uid, this.$slots.default());
 
 		// eslint-disable-next-line unicorn/no-useless-undefined
 		return undefined;

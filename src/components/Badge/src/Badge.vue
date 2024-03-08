@@ -104,7 +104,7 @@ export default {
 			return !this.label;
 		},
 		isInline() {
-			return !this.$slots.default;
+			return !this.$slots.default();
 		},
 		classes() {
 			const classes = [];

@@ -4,7 +4,6 @@
 			<textarea-control
 				:invalid="isInvalid"
 				v-bind="$attrs"
-				v-on="$listeners"
 			/>
 		</template>
 		<template #error>
@@ -37,7 +36,7 @@ export default {
 
 	computed: {
 		isInvalid() {
-			return this.$attrs.invalid === '' || this.$attrs.invalid || !!this.$slots.error;
+			return this.$attrs.invalid === '' || this.$attrs.invalid || !!this.$slots.error();
 		},
 	},
 };

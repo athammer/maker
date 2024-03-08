@@ -3,7 +3,6 @@
 		:class="$s.Theme"
 		:style="styles"
 		v-bind="$attrs"
-		v-on="$listeners"
 	>
 		<slot />
 	</div>

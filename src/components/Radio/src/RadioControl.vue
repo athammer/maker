@@ -9,7 +9,6 @@
 			:checked="isChecked"
 			:disabled="disabled"
 			v-bind="$attrs"
-			v-on="$listeners"
 		>
 	</div>
 </template>
@@ -58,6 +57,7 @@ export default {
 			default: false,
 		},
 	},
+	emits: ['radio:update'],
 
 	computed: {
 		isChecked() {

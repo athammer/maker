@@ -2,7 +2,6 @@
 	<m-transition-responsive
 		v-bind="$attrs"
 		:transitions="transitions"
-		v-on="$listeners"
 	>
 		<!-- @slot content to animate -->
 		<slot />

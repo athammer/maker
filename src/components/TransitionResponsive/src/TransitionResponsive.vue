@@ -4,7 +4,6 @@
 		v-bind="$attrs"
 		@enter="handleEnter"
 		@leave="handleLeave"
-		v-on="$listeners"
 	>
 		<!-- @slot content to animate -->
 		<slot />

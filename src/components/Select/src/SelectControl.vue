@@ -10,11 +10,10 @@
 			:class="[
 				$s.SelectButton,
 				{
-					[$s.hasPrefix]: $slots.prefix,
+					[$s.hasPrefix]: $slots.prefix(),
 				},
 			]"
 			v-bind="$attrs"
-			v-on="$listeners"
 		>
 			<span>
 				<!--
@@ -33,11 +32,10 @@
 				{
 					[$s.selected]: optionSelected,
 					[$s.invalid]: invalid,
-					[$s.hasPrefix]: $slots.prefix,
+					[$s.hasPrefix]: $slots.prefix(),
 				},
 			]"
 			v-bind="$attrs"
-			v-on="$listeners"
 		>
 			<option
 				v-if="placeholder"
@@ -66,7 +64,7 @@
 			which are not otherwise targetable.
 		-->
 		<span
-			v-if="$slots.prefix"
+			v-if="$slots.prefix()"
 			:class="$s.Prefix"
 		>
 			<!-- @slot Select prefix -->
@@ -132,6 +130,7 @@ export default {
 			default: false,
 		},
 	},
+	emits: ['select:update'],
 
 	computed: {
 		selected: {

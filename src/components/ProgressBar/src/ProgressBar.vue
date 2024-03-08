@@ -10,7 +10,6 @@
 		aria-valuemax="100"
 		:aria-valuenow="progress"
 		v-bind="$attrs"
-		v-on="$listeners"
 	>
 		<div
 			:class="[

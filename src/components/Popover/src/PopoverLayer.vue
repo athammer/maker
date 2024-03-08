@@ -18,9 +18,9 @@
 </template>
 
 <script>
+import { reactive } from 'vue';
 import { fadeInFn, fadeOutFn } from '@square/maker/utils/transitions';
 import PseudoWindow from 'vue-pseudo-window';
-import Vue from 'vue';
 import { PopoverAPIKey } from './keys';
 import { getPopoverId } from './utils';
 
@@ -33,7 +33,7 @@ const popoverMixin = {
 		const layerId = getPopoverId();
 		const target = `popover-portal-${layerId}`;
 
-		const api = Vue.observable({
+		const api = reactive({
 			currentInstance: undefined,
 			actionEl: undefined,
 			ignoreEls: [],
@@ -88,7 +88,7 @@ export default {
 
 	popoverMixin,
 
-	beforeDestroy() {
+	beforeUnmount() {
 		this.popoverApi.closePopover();
 	},
 

@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import Vue from 'vue';
+import { reactive } from 'vue';
 import PseudoWindow from 'vue-pseudo-window';
 import assert from '@square/maker/utils/assert';
 import { MTransitionFadeIn } from '@square/maker/components/TransitionFadeIn';
@@ -174,7 +174,7 @@ const apiMixin = {
 	provide() {
 		const vm = this;
 		const api = {
-			state: Vue.observable({
+			state: reactive({
 				// modal render function, passed via api.open
 				renderFn: undefined,
 				// modal beforeClose, set via beforeClose prop
@@ -368,7 +368,7 @@ export default {
 		});
 	},
 
-	destroyed() {
+	unmounted() {
 		this.unwatchStackedModal();
 	},
 

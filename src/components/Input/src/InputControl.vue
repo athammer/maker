@@ -18,7 +18,7 @@
 			]"
 			:disabled="disabled"
 			v-bind="$attrs"
-			v-on="$listeners"
+
 			@input="$emit('input:update', $event.target.value)"
 		>
 		<!--
@@ -27,7 +27,7 @@
 			which are not otherwise targetable.
 		-->
 		<span
-			v-if="$slots.prefix"
+			v-if="$slots.prefix()"
 			:class="[
 				$s.Affix,
 				$s.Prefix,
@@ -37,7 +37,7 @@
 			<slot name="prefix" />
 		</span>
 		<span
-			v-if="$slots.suffix"
+			v-if="$slots.suffix()"
 			:class="[
 				$s.Affix,
 				$s.Suffix,
@@ -94,6 +94,7 @@ export default {
 			validator: (align) => ['left', 'right'].includes(align),
 		},
 	},
+	emits: ['input:update'],
 
 	mounted() {
 		this.setCustomValidity();

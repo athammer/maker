@@ -2,7 +2,6 @@
 	<div
 		:style="starComputedStyles"
 		v-bind="$attrs"
-		v-on="$listeners"
 	>
 		<m-star
 			v-for="star in MAX_RATING"
@@ -92,6 +91,7 @@ export default {
 			default: false,
 		},
 	},
+	emits: ['star-click', 'star-hover', 'star-unhover'],
 
 	data() {
 		return {

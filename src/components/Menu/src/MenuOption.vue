@@ -58,6 +58,7 @@ export default {
 			default: undefined,
 		},
 	},
+	emits: ['option:click'],
 
 	computed: {
 		isSelected() {
@@ -85,8 +86,8 @@ export default {
 		selectSelf(clickEvent) {
 			const { isMultiSelect, isActionSelect } = this.controlState;
 
-			if (isActionSelect && this.$listeners.click) {
-				this.$listeners.click(clickEvent);
+			if (isActionSelect && this.$attrs.click) {
+				this.$attrs.click(clickEvent);
 			}
 
 			let currentValue = this.value;

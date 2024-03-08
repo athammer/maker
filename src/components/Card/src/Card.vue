@@ -8,7 +8,6 @@
 		v-bind="$attrs"
 		:style="style"
 		:theme="cardTheme"
-		v-on="$listeners"
 	>
 		<!-- @slot card content -->
 		<slot />
